@@ -4,7 +4,7 @@ library(data.table)
 hpcraw <- fread("household_power_consumption.txt", sep=";", na.strings="?")
 hpc <- subset(hpcraw, Date=="1/2/2007"|Date=="2/2/2007")
 
-#create new Timestamp variable with date+time
+#create new Timestamp variable with Date+Time as POSIXct
 hpc$Timestamp <- as.POSIXct(paste(as.Date(hpc$Date, format="%d/%m/%Y"), hpc$Time))
 
 #plot line plot into png graphics device
